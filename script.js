@@ -25,7 +25,10 @@ window.addEventListener('keydown' ,(e)=>{
         )
         localStorage.setItem("tasks", JSON.stringify(allTasksObj))
         taskInputElem.value = ''
-            messageElem.classList.add('none')
+        
+if(allTasksObj.length !== 0){
+    messageElem.classList.add('none')
+}
         err.classList.add('hidden')
     } else{
         err.classList.remove('hidden')
@@ -41,6 +44,10 @@ addBtn.addEventListener('click' ,(e)=>{
         )
         localStorage.setItem("tasks", JSON.stringify(allTasksObj))
         taskInputElem.value = ''
+        
+if(allTasksObj.length !== 0){
+    messageElem.classList.add('none')
+}
         err.classList.add('hidden')
     } else{
         err.classList.remove('hidden')
