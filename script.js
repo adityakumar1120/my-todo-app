@@ -25,6 +25,7 @@ window.addEventListener('keydown' ,(e)=>{
         )
         localStorage.setItem("tasks", JSON.stringify(allTasksObj))
         taskInputElem.value = ''
+            messageElem.classList.add('none')
         err.classList.add('hidden')
     } else{
         err.classList.remove('hidden')
