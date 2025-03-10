@@ -186,17 +186,22 @@ function generateTextUi(text, role){
 //fetching data  from ai gemini
 
 async function getResponse(taskText){
-    let response = await fetch(apiUrl , {
-        method: 'POST',
-        headers : {'Content-Type': 'application/json'},
-        body: JSON.stringify({ "contents": [{
-            "parts":[{"text": `you are my assistant in completing my todos help me with this task '${taskText}' in 1000 characters or less`}]
-            }]
-           })
-    })
-    let data = await response.json()
-
-    return await data.candidates[0].content.parts[0].text
+    try{
+        let response = await fetch(apiUrl , {
+            method: 'POST',
+            headers : {'Content-Type': 'application/json'},
+            body: JSON.stringify({ "contents": [{
+                "parts":[{"text": `you are my assistant in completing my todos help me with this task '${taskText}' in 1000 characters or less`}]
+                }]
+               })
+        })
+        let data = await response.json()
+    
+        return await data.candidates[0].content.parts[0].text
+    } 
+    catch(err){
+        return err
+    }
 }
 
 // hiding and showing the chat window and gemini icon
