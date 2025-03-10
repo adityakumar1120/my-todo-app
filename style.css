@@ -351,6 +351,7 @@ main{
     font-size: 28px;
     transform: rotate(45deg);
     cursor: pointer;
+    z-index: 11;
 }
 .flex{
     display: flex;

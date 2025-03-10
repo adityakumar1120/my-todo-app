@@ -147,6 +147,8 @@ taskContainer.addEventListener('click' , (event)=>{
             console.log(aiRes);
     
             //chat bot
+
+            document.querySelector('header').classList.add('none')
             chatWindow.id = taskIndex
             chatWindow.classList.remove('none')
             geminiIcon.classList.remove('none')
@@ -187,6 +189,8 @@ function generateTextUi(text, role){
 
 async function getResponse(taskText){
     try{
+        sendAIBtn.style.pointerEvents = 'none'
+
         let response = await fetch(apiUrl , {
             method: 'POST',
             headers : {'Content-Type': 'application/json'},
@@ -196,6 +200,7 @@ async function getResponse(taskText){
                })
         })
         let data = await response.json()
+        sendAIBtn.style.pointerEvents = 'auto'
     
         return await data.candidates[0].content.parts[0].text
     } 
@@ -208,6 +213,8 @@ async function getResponse(taskText){
 closeChat.addEventListener('click' ,()=>{
 chatWindow.classList.add('none')
 geminiIcon.classList.add('none')
+document.querySelector('header').classList.remove('none')
+
 })
 
 //auto scroll chat
