@@ -389,10 +389,14 @@ main{
 }
 @media (max-width: 800px) {
 .chat-window{
-    height: 100vh;
-    width: 100vw;
-    bottom: 0%;
-    right: 0%;
+    /* height: 100vh;
+    width: 100vw; */
+    height: auto;
+    width: auto;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
     padding: 15px 20px 0 7px;
     border-radius: 0;
 }
